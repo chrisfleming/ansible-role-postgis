@@ -1,0 +1,8 @@
+---
+
+- name: enable postgis extension within app db
+#  postgresql_ext: login_user="{{ postgis_controller_postgresql_user_username }}" login_password="{{ postgis_controller_postgresql_user_password }}" db="{{ item.name }}" name=postgis state=present
+  postgresql_ext: db="{{ item.name }}" name=postgis state=present
+  with_items: " {{ postgresql_databases }} "
+  when: item.enable_postgis
+  become_user: postgres

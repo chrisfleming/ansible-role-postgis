@@ -1,0 +1,6 @@
+---
+# Install PostGIS PostgreSQL extension
+#
+- include: install-postgis.yml
+
+- include: enable-db.yml
